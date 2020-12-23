@@ -46,7 +46,7 @@ public class MarioThrowingCap : MonoBehaviour
         Sequence throwSequence = DOTween.Sequence();
 
         //Throw the Cap
-        throwSequence.Append(Cap.DOMoveZ(-0.1f, throwDuration));
+        throwSequence.Append(Cap.DOMove(transform.position + transform.forward * 5, throwDuration));
 
         //Scale Cap
         throwSequence.Join(Cap.DOScale(1.1f, throwDuration));
@@ -61,7 +61,7 @@ public class MarioThrowingCap : MonoBehaviour
         Sequence ReturnSequence = DOTween.Sequence();
 
         //Return the Cap
-        ReturnSequence.Append(Cap.DOMoveZ(transform.position.z, ReturnDuration));
+        ReturnSequence.Append(Cap.DOMove(transform.position, ReturnDuration));
 
         //Cap original Scale
         ReturnSequence.Join(Cap.DOScale(0.65f, ReturnDuration));
