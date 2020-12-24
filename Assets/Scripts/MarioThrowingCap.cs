@@ -9,6 +9,7 @@ public class MarioThrowingCap : MonoBehaviour
     public ParticleSystem CapEffect;
     public Transform Cap;
     public Transform Mario;
+    public Transform ReturnPoint;
     [Space]
     [Header("Game Settings")]
     public float CapSpinningSpeed;
@@ -21,7 +22,7 @@ public class MarioThrowingCap : MonoBehaviour
 
     void Update()
     {
-        if ( Input.GetButtonDown("Fire1")) // mouse button
+        if ( Input.GetKey(KeyCode.H)) // H Letter
         {
 
             ThrowingCap();
@@ -61,7 +62,7 @@ public class MarioThrowingCap : MonoBehaviour
         Sequence ReturnSequence = DOTween.Sequence();
 
         //Return the Cap
-        ReturnSequence.Append(Cap.DOMove(transform.position, ReturnDuration));
+        ReturnSequence.Append(Cap.DOMove(ReturnPoint.transform.position, ReturnDuration));
 
         //Cap original Scale
         ReturnSequence.Join(Cap.DOScale(0.65f, ReturnDuration));
