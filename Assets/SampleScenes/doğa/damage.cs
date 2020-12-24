@@ -21,13 +21,22 @@ public class damage : MonoBehaviour
         }
     }
     */
-
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Player touched me");
             Vector3 damageDirection = other.transform.position + transform.position;
+            damageDirection = damageDirection.normalized;
+            FindObjectOfType<playerhealth>().DamagePlayer(Hurt, damageDirection);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Player touched me");
+            Vector3 damageDirection = collision.transform.position + transform.position;
             damageDirection = damageDirection.normalized;
             FindObjectOfType<playerhealth>().DamagePlayer(Hurt, damageDirection);
         }

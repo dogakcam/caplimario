@@ -35,7 +35,10 @@ public class newthirdperson : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 direction = new Vector3(-horizontalInput, 0, -verticalInput);
+        //Vector3 direction = new Vector3(-horizontalInput, 0, -verticalInput);
+        transform.rotation = Quaternion.Euler(0f, Camera.main.transform.rotation.eulerAngles.y, 0f);
+        Vector3 direction = transform.forward * verticalInput + transform.right * horizontalInput;
+
 
         if (_controller.isGrounded)
         {
