@@ -12,7 +12,7 @@ public class CoinCollector : MonoBehaviour
 		if (other.CompareTag("Coin")) // Detection of Coin
 		{
 			coin += 1;
-            
+			Debug.Log("Something Touched me");
 			ScoreSystem.theScore = coin;
 
 			Destroy(other.gameObject); //Destroy Coin

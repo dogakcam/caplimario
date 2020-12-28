@@ -72,11 +72,14 @@ public class MarioThrowingCap : MonoBehaviour
 
     }
 
-    void OriginalRotation(){
+    void OriginalRotation()
+    {
 
         CapEffect.Stop();
         Spinning = false;
         Cap.DORotate(new Vector3(24f, 0f, 10f), 0f);
     }
+
+
 
 }
